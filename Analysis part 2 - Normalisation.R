@@ -20,9 +20,9 @@ rownames(counts) <- rownames(sce)
 seu <- CreateSeuratObject(counts = counts, min.cells = 3, min.features = 200)
 
 # adding meta data (type WT or MT) to the seurat object
-type <- as.data.frame(t(sce$type))
-type <- type[rownames(type) %in% rownames(seu@meta.data),]
-type <- as.data.frame(type)
+type_1 <- as.data.frame(t(sce$type))
+type_2 <- type[rownames(type_1) %in% rownames(seu@meta.data),]
+type <- as.data.frame(type_2)
 seu <- AddMetaData(seu, type)
 
 # normalisation with sctransform

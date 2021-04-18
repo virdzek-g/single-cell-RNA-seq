@@ -67,13 +67,22 @@ plotExprsFreqMean(sce)
 
 # PCA
 library(ggplot2)
-sce <- runPCA(sce, use_coldata = TRUE, detect_outliers = TRUE)dims <- sce@reducedDims$PCA_coldatabatch <- as.data.frame(sce$batch)batch <- as.data.frame(t(batch))rownames(dims) <- batch$batchpca <- princomp(dims)groups <- factor(rownames(pca$scores))plot <- ggplot2:: qplot(Comp.1, Comp.2, data=pca, colour=groups, xlab="Dimension 1", ylab=="Dimension 2")
+sce <- runPCA(sce, use_coldata = TRUE, detect_outliers = TRUE)
+dims <- sce@reducedDims$PCA_coldata
+batch <- as.data.frame(sce$batch)
+batch <- as.data.frame(t(batch))
+rownames(dims) <- batch$batch
+pca <- princomp(dims)
+groups <- factor(rownames(pca$scores))
+plot <- ggplot2:: qplot(Comp.1, Comp.2, data=pca, colour=groups, xlab="Dimension 1", ylab=="Dimension 2")
 
 # Frequency of library size and number of expressed genes
-par(mfrow=c(1,2))hist(sce$total_counts, breaks = 50, col="lightblue", cex.main=0.7, cex.lab=0.7, xlab='Library size', main=NULL)hist(sce$total_features_by_counts, breaks = 50, col="lightgreen", cex.main=0.7, cex.lab=0.7, xlab='Number of expressed genes', main=NULL)
+par(mfrow=c(1,2))
+hist(sce$total_counts, breaks = 50, col="lightblue", cex.main=0.7, cex.lab=0.7, xlab='Library size', main=NULL)
+hist(sce$total_features_by_counts, breaks = 50, col="lightgreen", cex.main=0.7, cex.lab=0.7, xlab='Number of expressed genes', main=NULL)
 
 # Histogram of log average counts for all genes
-
+hist(log10(ave.counts), breaks=100, main="", col="grey80", xlab=expression(Log[10]~"average count"))
 
 
 

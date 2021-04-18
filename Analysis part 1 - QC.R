@@ -2,9 +2,9 @@
 
 # pre-processing, quality control, normalisation and visualisation of single-cell RNA-seq data
 #
-# This part of the analysis was heavily relied on scater_1.12.2 R package.
+# This part of the analysis heavily relied on scater_1.12.2 R package.
 #
-# In this analysis are two datasets (WT = wild type, MT = mutant) that were sequenced together.
+# Data for this analysis were generated from two samples (WT = wild type, MT = mutant) that were sequenced together.
 #
 # These steps were adapted from: Lun ATL, McCarthy DJ and Marioni JC. A step-by-step workfrlow for low-level analysis of single-cell RNA-seq data with Bioconductor F1000Research 2016, 5:2122 (doi:10.12688/f1000research.9501.2)
 #

@@ -1,6 +1,6 @@
 # Analysis part 1
 
-# pre-processing, quality control, normalisation and visualisation of single-cell RNA-seq data
+# Quality control of single cell RNA seq data.
 #
 # This part of the analysis heavily relied on scater_1.12.2 R package.
 #

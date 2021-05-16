@@ -11,7 +11,7 @@ library(randomForest) # randomForest_4.6-14
 library(Rtsne) # Rtsne_0.15
 
 # Linear dimensional reduction
-# PCA scores are used for cell slustering.
+# PCA scores are used for cell clustering.
 seu <- RunPCA(object = seu, verbose = FALSE, seed.use=30)
 # Primary source of heterogeneity can be explored by visualizing cells and genes with most extreme PCA scores in the first dimension.
 DimHeatmap (seu, dims = 1, cells = 500, balanced = TRUE)

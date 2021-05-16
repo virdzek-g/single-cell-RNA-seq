@@ -69,9 +69,9 @@ plotExprsFreqMean(sce)
 library(ggplot2)
 sce <- runPCA(sce, use_coldata = TRUE, detect_outliers = TRUE)
 dims <- sce@reducedDims$PCA_coldata
-batch <- as.data.frame(sce$batch)
-batch <- as.data.frame(t(batch))
-rownames(dims) <- batch$batch
+type <- as.data.frame(sce$type)
+type <- as.data.frame(t(type))
+rownames(dims) <- type$type
 pca <- princomp(dims)
 groups <- factor(rownames(pca$scores))
 plot <- ggplot2:: qplot(Comp.1, Comp.2, data=pca, colour=groups, xlab="Dimension 1", ylab=="Dimension 2")

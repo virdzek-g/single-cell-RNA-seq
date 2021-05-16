@@ -26,6 +26,17 @@ seu <- FindClusters(object = seu, verbose = FALSE, resolution=0.5)
 seu <- RunTSNE(object=seu, verbose=FALSE, dims.use = 1:10)
 TSNEPlot(seu)
 
+# create an object with all the relevant data that will be used to run the random forest
+seu10 <- RunTSNE(seu,dims = 1:10, verbose = FALSE, n.components = 10)
+tsne10 <- seu10@reductions$tsne@cell.embeddings
+type <- seu$type
+count <- seu$nCount_RNA
+clust <- seu@meta.data$seurat_clusters
+pca10 <- seu@reductions$pca@cell.embeddings
+datRF <- data.frame(clust, tsne10, type, pca10, count)
+datRF$clust <- as.factor(datRF$clust)
+datRF$type <- as.factor(datRF$type)
+
 # Random forest regression analysis
 set.seed(101)
 # Search for the optimal hypoparameters for the RF

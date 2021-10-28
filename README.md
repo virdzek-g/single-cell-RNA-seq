@@ -5,4 +5,4 @@ I have divided the code into individual parts (QC, normalisation, clusering, dat
 I am unable to provide any further information about the data, sequenced cells or results until the data is published. I will then update this repository and provide more information.
 
 
-![plot]('./Users/gv1u14/Desktop/scRNA-seq.png')
+![plot](./Users/gv1u14/Desktop/scRNAseq.png)
